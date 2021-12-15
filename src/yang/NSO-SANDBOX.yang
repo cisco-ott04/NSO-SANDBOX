@@ -35,15 +35,15 @@ module NSO-SANDBOX {
     ncs:servicepoint NSO-SANDBOX-servicepoint;
 
     // may replace this with other ways of refering to the devices.
-    leaf-list device {
-      type leafref {
-        path "/ncs:devices/ncs:device/ncs:name";
+    list svi {
+      key vlan-id;
+      leaf vlan-id {
+        tailf:info "VLAN ID";
+        type int32;
+        range "2..4096";
       }
     }
 
-    // replace with your own stuff here
-    leaf dummy {
-      type inet:ipv4-address;
-    }
+
   }
 }
